@@ -264,7 +264,8 @@ public class OAuthManagerProviders {
     String scopes = "";
     if (cfg.containsKey("scopes")) {
       scopes = (String) cfg.get("scopes");
-      String scopeStr = OAuthManagerProviders.getScopeString(scopes, ",");
+      //String scopeStr = OAuthManagerProviders.getScopeString(scopes, ",");
+      String scopeStr = OAuthManagerProviders.getScopeString(scopes, " ");
       builder.scope(scopeStr);
     }
 
@@ -274,8 +275,10 @@ public class OAuthManagerProviders {
       scopes = (String) opts.getString("scopes");
       String scopeStr = null;
       
-      if (!rawScopes)
-        scopeStr = OAuthManagerProviders.getScopeString(scopes, ",");
+      if (!rawScopes) {
+        //scopeStr = OAuthManagerProviders.getScopeString(scopes, ",");
+        scopeStr = OAuthManagerProviders.getScopeString(scopes, " ");
+      }
       else
         scopeStr = scopes;
         
